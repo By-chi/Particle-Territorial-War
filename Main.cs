@@ -49,7 +49,7 @@ public partial class Main : Node2D
 
 	public void _on_scatter_body_entered(Node2D body)
 	{
-		if (body is Ball ball)
+		if (IsInstanceValid(body)&&!body.IsQueuedForDeletion()&&body is Ball ball)
 		{
 			ball.Host.LaunchShotgunPellets(ball.value);
 			ball.Host.AddBall(10);
@@ -59,7 +59,7 @@ public partial class Main : Node2D
 	}
 	public void _on_machine_body_entered(Node2D body)
 	{
-		if (body is Ball ball)
+		if (IsInstanceValid(body)&&!body.IsQueuedForDeletion()&&body is Ball ball)
 		{
 			ball.Host.AddBullets(ball.value);
 			ball.Host.AddBall(10);
@@ -68,7 +68,7 @@ public partial class Main : Node2D
 	}
 	public void _on_shield_body_entered(Node2D body)
 	{
-		if (body is Ball ball)
+		if (IsInstanceValid(body)&&!body.IsQueuedForDeletion()&&body is Ball ball)
 		{
 			ball.Host.AddHealth(ball.value);
 			ball.Host.AddBall(10);
@@ -77,7 +77,7 @@ public partial class Main : Node2D
 	}
 	public void _on_big_body_entered(Node2D body)
 	{
-		if (body is Ball ball)
+		if (IsInstanceValid(body)&&!body.IsQueuedForDeletion()&&body is Ball ball)
 		{
 			ball.Host.AddBigBall(ball.value);
 			ball.Host.AddBall(10);
@@ -87,7 +87,7 @@ public partial class Main : Node2D
 
 	public void _on_snipe_body_entered(Node2D body)
 	{
-		if (body is Ball ball)
+		if (IsInstanceValid(body)&&!body.IsQueuedForDeletion()&&body is Ball ball)
 		{
 			ball.Host.AddSnipeBullet(ball.value);
 			ball.Host.AddBall(10);
@@ -96,7 +96,7 @@ public partial class Main : Node2D
 	}
 	public void _on_x_4_body_entered(Node2D body)
 	{
-		if (body is Ball ball)
+		if (IsInstanceValid(body)&&!body.IsQueuedForDeletion()&&body is Ball ball)
 		{
 			ball.Host.AddBall(ball.value*4);
 			ball.QueueFree();
@@ -104,7 +104,7 @@ public partial class Main : Node2D
 	}
 	public void _on_x_2_body_entered(Node2D body)
 	{
-		if (body is Ball ball)
+		if (IsInstanceValid(body)&&!body.IsQueuedForDeletion()&&body is Ball ball)
 		{
 			ball.Host.AddBall(ball.value*2);
 			ball.QueueFree();
@@ -112,7 +112,7 @@ public partial class Main : Node2D
 	}
 	public void _on_x_8_body_entered(Node2D body)
 	{
-		if (body is Ball ball)
+		if (IsInstanceValid(body)&&!body.IsQueuedForDeletion()&&body is Ball ball)
 		{
 			ball.Host.AddBall(ball.value*8);
 			ball.QueueFree();

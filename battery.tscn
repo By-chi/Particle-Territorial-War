@@ -13,7 +13,7 @@ radial_segments = 4
 rings = 14
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qise7"]
-radius = 196.00255
+radius = 348.11636
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8fmpm"]
 friction = 0.0

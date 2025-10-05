@@ -31,7 +31,7 @@ public partial class Bullet : Area2D
 
     public new void AreaEntered(Area2D area)
     {
-        if (area is Bullet bullet && bullet.Host != Host)
+        if (IsInstanceValid(area)&&area is Bullet bullet && bullet.Host != Host)
         {
             if (Health > bullet.Health || (Health == bullet.Health && id > bullet.id))
             {
@@ -47,8 +47,6 @@ public partial class Bullet : Area2D
         Monitoring = true;
         _lastWorldPosition = GlobalPosition;
         Health = health;
-        // if (Health!=100)
-        // 	GD.Print(Health);
         // 缓存地图边界数据，避免每帧访问
         if (map != null)
         {

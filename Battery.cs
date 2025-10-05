@@ -11,8 +11,8 @@ public partial class Battery : Area2D
     [Export] public Sprite2D Sprite { get; set; }
 
 
-    private int _quantityGenerated = 3;
-    private float _dispersion = 0.1f;
+    private int _quantityGenerated = 10;
+    private float _dispersion = 0.06f;
 
     private System.Numerics.BigInteger _remainingAmmunitionQuantity = 5000;
     public System.Numerics.BigInteger RemainingAmmunitionQuantity
@@ -26,7 +26,7 @@ public partial class Battery : Area2D
     }
     public void body_entered(Node2D body)
     {
-        if (body is BigBall bigBall && bigBall.Host != this)
+        if (IsInstanceValid(body)&&body is BigBall bigBall && bigBall.Host != this)
         {
             Aim.Add(body);
 
@@ -37,7 +37,7 @@ public partial class Battery : Area2D
     }
     public void area_entered(Area2D area)
     {
-        if (area is Bullet bullet && bullet.Host != this)
+        if (IsInstanceValid(area)&& area is Bullet bullet && bullet.Host != this)
         {
             Aim.Add(area);
             // GetNode<Label>("Label").Text = "new Bullet";
@@ -46,7 +46,7 @@ public partial class Battery : Area2D
     }
     public readonly List<Node2D> Aim=[];
     public System.Numerics.BigInteger AimId;
-    private System.Numerics.BigInteger _health = 1000000;
+    private System.Numerics.BigInteger _health = 10000000;
     public System.Numerics.BigInteger Health
     {
         get => _health;
@@ -75,7 +75,7 @@ public partial class Battery : Area2D
     }
     public new void AreaEntered(Area2D area)
     {
-        if (area is Bullet bullet&&bullet.Host!=this)
+        if (IsInstanceValid(area)&&area is Bullet bullet&&bullet.Host!=this)
         {
             Health -= bullet.Health;
             bullet.TriggerDespawn();

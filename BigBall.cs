@@ -28,7 +28,7 @@ public partial class BigBall : RigidBody2D
 	}
 	public new void BodyEntered(Node2D body)
 	{
-		if (body is BigBall bigBall && bigBall.Host != Host)
+		if (IsInstanceValid(body)&&body is BigBall bigBall && bigBall.Host != Host)
 		{
 			if (Health > bigBall.Health || (Health == bigBall.Health && id > bigBall.id))
 			{

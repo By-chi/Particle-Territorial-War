@@ -44,10 +44,11 @@ movie_writer/fps=30
 
 2d/run_on_separate_thread=true
 common/max_physics_steps_per_frame=1
+common/physics_jitter_fix=2.0
 2d/default_linear_damp=0.0
 2d/default_angular_damp=0.0
-2d/time_before_sleep=5.0
 2d/solver/solver_iterations=1
+2d/solver/contact_max_separation=10.0
 2d/solver/contact_max_allowed_penetration=10.0
 common/enable_object_picking=false
 

@@ -12,8 +12,8 @@ public partial class Ball : RigidBody2D
         MeshInstance.Modulate = Host.Color;
         LinearVelocity = Vector2.Up.Rotated(GD.Randf()) * 500;
         ValueLabel.Text = value.ToString();
-        if (value > 999999999)
-            value = 999999999;
+        if (value > 9999999999)
+            value = 9999999999;
     }
 
 }

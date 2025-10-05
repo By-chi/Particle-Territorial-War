@@ -89,6 +89,7 @@ position = Vector2(678, 512)
 shape = SubResource("RectangleShape2D_4c57u")
 
 [node name="Side" type="StaticBody2D" parent="Map"]
+collision_priority = 9999999.0
 
 [node name="up" type="CollisionShape2D" parent="Map/Side"]
 position = Vector2(678, -28)
@@ -107,6 +108,7 @@ position = Vector2(1360, 512)
 shape = SubResource("RectangleShape2D_dg77c")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_priority = 9999999.0
 
 [node name="up" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(312, -5)
@@ -253,7 +255,7 @@ horizontal_alignment = 1
 position = Vector2(10, 88)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/X2"]
-position = Vector2(302, 283)
+position = Vector2(17, 359)
 shape = SubResource("CircleShape2D_1bvp3")
 
 [node name="Label" type="Label" parent="StaticBody2D/X2/CollisionShape2D"]
@@ -271,8 +273,27 @@ grow_vertical = 2
 text = "X2"
 horizontal_alignment = 1
 
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D/X2"]
+position = Vector2(584, 359)
+shape = SubResource("CircleShape2D_1bvp3")
+
+[node name="Label" type="Label" parent="StaticBody2D/X2/CollisionShape2D4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -11.5
+offset_right = 10.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "X2"
+horizontal_alignment = 1
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D/X2"]
-position = Vector2(481, 182)
+position = Vector2(491, 523)
 shape = SubResource("CircleShape2D_1bvp3")
 
 [node name="Label" type="Label" parent="StaticBody2D/X2/CollisionShape2D2"]
@@ -291,7 +312,7 @@ text = "X2"
 horizontal_alignment = 1
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D/X2"]
-position = Vector2(123, 182)
+position = Vector2(133, 523)
 shape = SubResource("CircleShape2D_1bvp3")
 
 [node name="Label" type="Label" parent="StaticBody2D/X2/CollisionShape2D3"]
@@ -312,46 +333,8 @@ horizontal_alignment = 1
 [node name="X4" type="Area2D" parent="StaticBody2D"]
 position = Vector2(5, 383)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/X4"]
-position = Vector2(579, 355)
-shape = SubResource("CircleShape2D_1bvp3")
-
-[node name="Label" type="Label" parent="StaticBody2D/X4/CollisionShape2D"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -11.5
-offset_right = 10.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "X4"
-horizontal_alignment = 1
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D/X4"]
-position = Vector2(42, 355)
-shape = SubResource("CircleShape2D_1bvp3")
-
-[node name="Label" type="Label" parent="StaticBody2D/X4/CollisionShape2D4"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -11.5
-offset_right = 10.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "X4"
-horizontal_alignment = 1
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D/X4"]
-position = Vector2(481, 182)
+position = Vector2(504, 162)
 shape = SubResource("CircleShape2D_1bvp3")
 
 [node name="Label" type="Label" parent="StaticBody2D/X4/CollisionShape2D2"]
@@ -370,7 +353,7 @@ text = "X4"
 horizontal_alignment = 1
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D/X4"]
-position = Vector2(123, 182)
+position = Vector2(101, 162)
 shape = SubResource("CircleShape2D_1bvp3")
 
 [node name="Label" type="Label" parent="StaticBody2D/X4/CollisionShape2D3"]
