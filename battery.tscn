@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccc7gvpjp1dy5"]
+
+[ext_resource type="Script" uid="uid://cmpd1pu086em2" path="res://Battery.cs" id="1_8fmpm"]
+[ext_resource type="Texture2D" uid="uid://c3n7g0rb5tnha" path="res://battery.png" id="2_8fmpm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8fmpm"]
+radius = 60.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_8fmpm"]
+radius = 60.0
+height = 120.0
+radial_segments = 4
+rings = 14
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qise7"]
+radius = 196.00255
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8fmpm"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m10sm"]
+radius = 60.0
+
+[node name="Battery" type="Area2D" node_paths=PackedStringArray("RemainingAmmunitionQuantityLabel", "HealthLabel", "ShootMarker", "Sprite")]
+script = ExtResource("1_8fmpm")
+RemainingAmmunitionQuantityLabel = NodePath("RemainingAmmunitionQuantity")
+HealthLabel = NodePath("Health")
+ShootMarker = NodePath("Sprite2D/Shoot")
+Sprite = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8fmpm")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CollisionShape2D"]
+self_modulate = Color(1, 1, 1, 0.2)
+mesh = SubResource("SphereMesh_8fmpm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.420698
+texture = ExtResource("2_8fmpm")
+offset = Vector2(0, -11)
+
+[node name="Shoot" type="Marker2D" parent="Sprite2D"]
+position = Vector2(0, -34)
+
+[node name="RemainingAmmunitionQuantity" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_top = 22.0
+offset_right = 28.0
+offset_bottom = 45.0
+grow_horizontal = 2
+text = "100000"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Health" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_top = -61.0
+offset_right = 28.0
+offset_bottom = -38.0
+grow_horizontal = 2
+text = "100000"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Radar" type="Area2D" parent="."]
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Radar"]
+shape = SubResource("CircleShape2D_qise7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_8fmpm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_m10sm")
+
+[connection signal="area_entered" from="." to="." method="AreaEntered"]
+[connection signal="area_entered" from="Radar" to="." method="area_entered"]
+[connection signal="body_entered" from="Radar" to="." method="body_entered"]

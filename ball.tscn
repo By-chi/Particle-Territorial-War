@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://npjrj8hhdsat"]
+
+[ext_resource type="Script" uid="uid://bap7cv6u6uevt" path="res://Ball.cs" id="1_x8fbi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1bvp3"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_efxa6"]
+radius = 10.049875
+
+[sub_resource type="SphereMesh" id="SphereMesh_x8fbi"]
+radius = 5.0
+height = 10.0
+radial_segments = 4
+rings = 4
+
+[node name="Ball" type="RigidBody2D" node_paths=PackedStringArray("ValueLabel", "MeshInstance")]
+physics_material_override = SubResource("PhysicsMaterial_1bvp3")
+gravity_scale = 0.25
+lock_rotation = true
+script = ExtResource("1_x8fbi")
+ValueLabel = NodePath("Value")
+MeshInstance = NodePath("MeshInstance2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_efxa6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(-4.7683716e-07, 0)
+scale = Vector2(2.102924, 2)
+mesh = SubResource("SphereMesh_x8fbi")
+
+[node name="Value" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -8.0
+offset_right = 13.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1

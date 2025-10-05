@@ -1,0 +1,60 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Particle Territorial War"
+run/main_scene="uid://bf7jah740cv1w"
+run/disable_stdout=true
+run/print_header=false
+config/features=PackedStringArray("4.5", "C#", "Forward Plus")
+run/delta_smoothing=false
+config/icon="res://icon.svg"
+
+[autoload]
+
+Database="*res://Database.cs"
+
+[display]
+
+window/size/viewport_width=1980
+window/size/viewport_height=1024
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
+window/vsync/vsync_mode=0
+
+[dotnet]
+
+project/assembly_name="Particle Territorial War"
+
+[editor]
+
+movie_writer/movie_file="D:/Godot项目/particle-territorial-war/111.ogv"
+movie_writer/disable_vsync=true
+movie_writer/fps=30
+
+[physics]
+
+2d/run_on_separate_thread=true
+common/max_physics_steps_per_frame=1
+2d/default_linear_damp=0.0
+2d/default_angular_damp=0.0
+2d/time_before_sleep=5.0
+2d/solver/solver_iterations=1
+2d/solver/contact_max_allowed_penetration=10.0
+common/enable_object_picking=false
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

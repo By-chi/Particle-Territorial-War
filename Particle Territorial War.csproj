@@ -1,0 +1,13 @@
+<Project Sdk="Godot.NET.Sdk/4.5.0">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <RootNamespace>ParticleTerritorialWar</RootNamespace>
+    
+    <!-- 适合类库的体积优化配置 -->
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer> <!-- 分析未使用代码 -->
+    <TrimMode>partial</TrimMode> <!-- 裁剪未使用代码 -->
+    <Optimize>true</Optimize> <!-- 启用代码优化 -->
+  </PropertyGroup>
+</Project>

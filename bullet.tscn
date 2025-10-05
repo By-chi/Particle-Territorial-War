@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6nlej3aokw8n"]
+
+[ext_resource type="Script" uid="uid://bs3hmri5ycngx" path="res://Bullet.cs" id="1_v7oki"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rtl8c"]
+radius = 6.0
+height = 12.0
+radial_segments = 4
+rings = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7oki"]
+size = Vector2(12, 12)
+
+[node name="Area2D" type="Area2D"]
+input_pickable = false
+script = ExtResource("1_v7oki")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("SphereMesh_rtl8c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v7oki")
+
+[connection signal="area_entered" from="." to="." method="AreaEntered"]
+[connection signal="body_entered" from="." to="." method="BodyEntered"]
